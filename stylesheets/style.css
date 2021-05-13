@@ -1,0 +1,59 @@
+
+/* @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);*/
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
+
+/*html body*/
+
+html{scroll-behavior: smooth;}
+
+body{margin: 0; padding:0; font-family: "Nanum Gothic", sans-serif; background-color:#87ceeb; color:white;}
+.wrapper{width:1024px; margin:0 auto; margin-top:70px;}
+
+/*setting a tag*/
+
+a{color: #87ceeb;}
+a:link{text-decoration: none; color:#87ceeb;}
+a:visited{text-decoration: none; color:#87ceeb;}
+
+/*************/
+/**top-style**/
+/*************/
+
+
+
+#maintop{margin:0; height: 80px; position:relative; vertical-align:middle; background-color:white; color:#87ceeb;}
+.top-area{width:1024px; margin:0 auto; text-align:center;}
+
+.logo{display:inline-block; position:relative; vertical-align: middle; margin-top:0; padding:0;  line-height: 80px;}
+.logo h1{margin:0; font-size:32px;}
+
+/*.login-form{position:relative; float:right; display: inline-block; margin:0; padding:0; margin-right:150px;  width:200px;}
+#login-list{list-style:none; vertical-align: middle; margin:0; padding:0;}
+#login-list li{float:left; margin-left:10px; line-height: 80px; font-weight: bold;}
+*/
+
+/***************/
+/*main-contents*/
+/***************/
+#mainmiddle{margin:0 auto; text-align:center; font-size:15px; font-weight:500; font-weight: bold;}
+
+/*****intro*****/
+.intro{line-height: 35px;}
+.input_style{border-radius: 10px; background-color:rgba(255, 255, 255, 0.5); border:none; width:220px; height: 30px; }
+.input_button{ background-color:white; border-radius: 10px; border:none; color: #87ceeb; font-weight:900; height:70px;}
+
+
+/*****join*****/
+#join table tr td{height:40px;}
+.join_go{background-color:white; border:none; border-radius: 10px;  text-align: center; margin:0 auto; width:270px; height: 30px; font-size:18px; color:#87ceeb;}
+.join_text p a{ font-size:18px; border-radius: 10px; color:#3281a2 !important; line-height: 30px;}
+
+
+
+
+
+/*****user_info****/
+.user_info_top{position:relative; margin: auto; width:700px; border-radius: 10px; border:3px solid white;}

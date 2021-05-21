@@ -50,17 +50,6 @@
 </html>
 
 <script>
-    function JoinAccess() {
-        var id = document.getElementById("id").value;
-        var pw = document.getElementById("pw").value;
-        var username = document.getElementById("username").value;
-        var email = document.getElementById("email").value;
-
-        alert("hello!");
-
-        window.location.href = "index.html";
-    }
-
     var url = decodeURIComponent(window.location.href);
     $.urlParam = function (name) {
 
@@ -77,6 +66,7 @@
 
 
 
+    // parameter get
     var result_search_id = $.urlParam('search_id');
 
     var userNameVal = "";

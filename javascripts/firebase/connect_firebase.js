@@ -1,5 +1,4 @@
 
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
@@ -16,3 +15,14 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
+
+var user_id_list = [];
+
+//user_list
+var userDbRef = database.ref('/users/');
+userDbRef.orderByKey().once('value').then(function (snapshot) {
+    snapshot.forEach(function (userSnapshot) {
+        var userKey = userSnapshot.key;
+        user_id_list.push(String(userKey));
+    });
+});

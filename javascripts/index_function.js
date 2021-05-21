@@ -4,50 +4,44 @@ function login_Go() {
     var user_id = document.getElementById("id").value;
     var user_pw = document.getElementById("pw").value;
 
-    var user_id_list = [];
     var user_info = [];
     var db_password = '';
 
-    var userDbRef = database.ref('/users/');
-    userDbRef.orderByKey().once('value').then(function (snapshot) {
-        snapshot.forEach(function (userSnapshot) {
-            var userKey = userSnapshot.key;
-            user_id_list.push(String(userKey));
-        });
 
-        if (user_id == "" || user_pw == "") {
-            alert("아이디 또는 비밀번호가 입력되지 않았습니다.");
-        }
-        else {
-            for (var j = 0; j <= user_id_list.length - 1; j++) {
-                if (user_id != user_id_list[j]) {
-                }
-                else {
 
-                    firebase.database().ref('/users/' + user_id + '/userinfo').once('value').then(function (snapshot) {
-                        snapshot.forEach(function (userSnapshot) {
-                            var userVal = userSnapshot.val();
-                            user_info.push(userVal);
-                        });
-                        db_password = db_password + user_info[3];
+    if (user_id == "" || user_pw == "") {
+        alert("아이디 또는 비밀번호가 입력되지 않았습니다.");
+    }
+    else {
+        for (var j = 0; j <= user_id_list.length - 1; j++) {
+            if (user_id != user_id_list[j]) {
+            }
+            else {
 
-                        if (user_pw != db_password) {
-                            alert("아이디 혹은 비밀번호가 잘못 입력되었습니다.");
-                        }
-                        else {
-                            sessionStorage.setItem("userid", user_id);
-                            var session_user_id = sessionStorage.getItem("userid");
-                            console.log(session_user_id);
-                            alert("로그인 완료!\n 아이디는 : " + session_user_id);
-
-                            window.location.href = "index.html";
-                        }
+                firebase.database().ref('/users/' + user_id + '/userinfo').once('value').then(function (snapshot) {
+                    snapshot.forEach(function (userSnapshot) {
+                        var userVal = userSnapshot.val();
+                        user_info.push(userVal);
                     });
-                    break;
-                }
+                    db_password = db_password + user_info[3];
+
+                    if (user_pw != db_password) {
+                        alert("아이디 혹은 비밀번호가 잘못 입력되었습니다.");
+                    }
+                    else {
+                        sessionStorage.setItem("userid", user_id);
+                        var session_user_id = sessionStorage.getItem("userid");
+                        console.log(session_user_id);
+                        alert("로그인 완료!\n 아이디는 : " + session_user_id);
+
+                        window.location.href = "index.html";
+                    }
+                });
+                break;
             }
         }
-    });
+    }
+
 }
 
 function Join_Go() {

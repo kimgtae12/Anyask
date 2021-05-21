@@ -86,8 +86,9 @@ $(document).ready(function () {
     else {
         index_value += '<p class="intro">' + session_id + '님 반갑습니다.</br>' +
             '원하는 사용자의 아이디를 검색하여 지금 바로 질문해보세요!</p>' +
-            '<form action="info.html">' +
+            '<form action="info.html" method="get">' +
             '   <input class="search_id" type="text" name="search_id" placeholder="원하는 사용자의 아이디를 입력하세요.">' +
+            '   <input type="submit" value="검색"/>' +
             '</form>'
     }
     $('.main-form').append(index_value);

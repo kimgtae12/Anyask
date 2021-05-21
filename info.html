@@ -37,7 +37,6 @@
         <section id="mainmiddle">
             <div class="user_info_top">
 
-                <p>Username</p>
             </div>
             <div id="test">
 
@@ -75,6 +74,17 @@
             return results[1] || 0;
         }
     }
+
+
+
+    var result_search_id = $.urlParam('search_id');
+
+    var userNameVal = "";
+
+    userNameVal += '<p> 아이디 : ' + result_search_id + '</p>';
+
+    $('.user_info_top').append(userNameVal);
+
 
     console.log($.urlParam('search_id'));
 

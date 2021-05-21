@@ -1,13 +1,24 @@
 <!DOCTYPE HTML>
 
 <head>
+    <title>AnyAsk 익명을 향한 당신의 질문</title>
     <meta charset="utf-8">
+    <!--include css-->
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
-    <script src="javascripts/jquery_min.js"></script>
+
+    <!--include jquery-->
+    <script src="javascripts/jquery/jquery_min.js"></script>
+
+    <!--include dynamic function javascript-->
     <script src="javascripts/AskJs.js" type="text/javascript"></script>
+    <script src="javascripts/menulist.js" type="text/javascript"></script>
+
+    <!--connect firebase-->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
-    <script src="javascripts/connect_firebase.js" type="text/javascript"></script>
+
+    <script src="javascripts/firebase/connect_firebase.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -16,14 +27,10 @@
             <div class="logo">
                 <h1><a href="index.html">AnyAsk</a></h1>
             </div>
-            <!------
-                <div class="login-form">
-                    <ul id="login-list">
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                    </ul>
-                </div>
-                ----------->
+            <div class="login-form">
+                <ul id="login-list">
+                </ul>
+            </div>
         </div>
     </section>
     <div class="wrapper">
@@ -43,16 +50,6 @@
 
 </html>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.6.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.6.0/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-
 <script>
     function JoinAccess() {
         var id = document.getElementById("id").value;
@@ -64,6 +61,23 @@
 
         window.location.href = "index.html";
     }
+
+    var url = decodeURIComponent(window.location.href);
+    $.urlParam = function (name) {
+
+        //exec를 통해 주소값을 return해준다.
+        //return 된 주소값을 RegExp라는 정규식을 통해 =뒤에 있는 문자를 가져온다.
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+            return null;
+        }
+        else {
+            return results[1] || 0;
+        }
+    }
+
+    console.log($.urlParam('search_id'));
+
 
 
 </script>

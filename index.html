@@ -1,21 +1,24 @@
 <!DOCTYPE HTML>
 
 <head>
+    <title>AnyAsk 익명을 향한 당신의 질문</title>
     <meta charset="utf-8">
 
     <!--include css-->
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 
     <!--include jquery-->
-    <script src="javascripts/jquery_min.js"></script>
+    <script src="javascripts/jquery/jquery_min.js"></script>
 
     <!--include dynamic function javascript-->
-    <script src="javascripts/AskJs.js" type="text/javascript"></script>
+    <script src="javascripts/index_function.js" type="text/javascript"></script>
+    <script src="javascripts/menulist.js" type="text/javascript"></script>
 
     <!--connect firebase-->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
-    <script src="javascripts/connect_firebase.js" type="text/javascript"></script>
+    <script src="javascripts/firebase/connect_firebase.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -24,56 +27,26 @@
             <div class="logo">
                 <h1><a href="index.html">AnyAsk</a></h1>
             </div>
-            <!------
-                <div class="login-form">
-                    <ul id="login-list">
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                    </ul>
-                </div>
-                ----------->
+            <div class="login-form">
+                <ul id="login-list">
+                </ul>
+            </div>
+
         </div>
     </section>
     <div class="wrapper">
         <section id="mainmiddle">
             <div class="main-form">
-                <p class="intro">AnyAsk는 익명으로 서로가 질문을 하고 답변을 할 수 있는 사이트 입니다.<br>
-                    질문이 부담스럽다면 거절도 가능합니다.<br>
-                    로그인을 하여 말하지 못했던 질문을 지금 바로 해보세요.</p>
-                <form id="login">
-                    <table style="margin:0 auto;" class="logintable">
-                        <tr>
-                            <td><input class="input_style" type="text" name="id" id="id" placeholder="아이디" required>
-                            </td>
-                            <td rowspan="2"><input class="input_button" type="submit" value="로그인" onclick="login_Go()">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input class="input_style" type="password" name="pw" id="pw" placeholder="비밀번호"
-                                    required></td>
-
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="height: 60px;">또는</td>
-                        </tr>
-                        <tr>
-                            <!-- <td colspan="2" class="join_text"><p><a href="join.html">회원가입</a></p></td>-->
-                            <td colspan="2"><input class="join_go" type="button" value="회원가입" onclick="Join_Go()" />
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+            </div>
+            <div id="testsession">
+                <input type="button" onclick="testSeesionDestroy()" value="test">
             </div>
         </section>
     </div>
 </body>
 <script>
-    $(document).ready(function () {
-        var para_test = location.href.substr(
-            location.href.lastIndexOf('=') + 1
-        )
-        alert(para_test);
-    })
+
+
 </script>
 
 <footer>

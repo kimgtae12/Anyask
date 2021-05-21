@@ -30,10 +30,10 @@ a:visited{text-decoration: none; color:#87ceeb;}
 .logo{display:inline-block; position:relative; vertical-align: middle; margin-top:0; padding:0;  line-height: 80px;}
 .logo h1{margin:0; font-size:32px;}
 
-/*.login-form{position:relative; float:right; display: inline-block; margin:0; padding:0; margin-right:150px;  width:200px;}
+.login-form{position:relative; float:right; display: inline-block; margin:0; padding:0; margin-right:150px;  width:200px;}
 #login-list{list-style:none; vertical-align: middle; margin:0; padding:0;}
 #login-list li{float:left; margin-left:10px; line-height: 80px; font-weight: bold;}
-*/
+
 
 /***************/
 /*main-contents*/
@@ -45,7 +45,9 @@ a:visited{text-decoration: none; color:#87ceeb;}
 .input_style{border-radius: 10px; background-color:rgba(255, 255, 255, 0.5); border:none; width:220px; height: 30px; }
 .input_button{ background-color:white; border-radius: 10px; border:none; color: #87ceeb; font-weight:900; height:70px;}
 
+.search_id{border-radius: 10px; background-color:rgba(255, 255, 255, 0.5); border:none; width:350px; height: 30px; }
 
+.search_id::placeholder{text-align:center;}
 /*****join*****/
 #join table tr td{height:40px;}
 .join_go{background-color:white; border:none; border-radius: 10px;  text-align: center; margin:0 auto; width:270px; height: 30px; font-size:18px; color:#87ceeb;}

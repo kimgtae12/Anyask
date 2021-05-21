@@ -22,3 +22,5 @@ function searchIdAccess() {
     window.location.href = 'info.html';
     alert('go');
 }
+/*join_page*/
+

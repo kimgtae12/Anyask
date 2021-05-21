@@ -50,7 +50,9 @@ function login_Go() {
     });
 }
 
-
+function Join_Go() {
+    window.location.href = "join.html";
+}
 
 
 /* page_view_jqeury */

@@ -23,6 +23,6 @@ var userDbRef = database.ref('/users/');
 userDbRef.orderByKey().once('value').then(function (snapshot) {
     snapshot.forEach(function (userSnapshot) {
         var userKey = userSnapshot.key;
-        user_id_list.push(String(userKey));
+        user_id_list.push(userKey);
     });
 });

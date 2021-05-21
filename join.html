@@ -73,7 +73,7 @@
     function IdOverlabCheck() {
         let id = document.getElementById("id").value;
         console.log(id);
-        for (let i = 0; i <= user_id_list.length; i++) {
+        for (var i = 0; i <= user_id_list.length - 1; i++) {
             if (id == "") {
                 alert("아이디를 입력해주세요.");
                 break;
@@ -114,6 +114,7 @@
             alert("가입완료~!");
 
             window.location.href = "index.html";
+            join_count = 0;
         }
         else {
             alert("아이디 중복검사를 실행해주세요.");

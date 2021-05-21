@@ -63,21 +63,26 @@
             return results[1] || 0;
         }
     }
-
-
-
     // parameter get
-    var result_search_id = $.urlParam('search_id');
+    let result_search_id = $.urlParam('search_id');
 
-    var userNameVal = "";
-
-    userNameVal += '<p> 아이디 : ' + result_search_id + '</p>';
-
-    $('.user_info_top').append(userNameVal);
+    let userNameVal = "";
 
 
-    console.log($.urlParam('search_id'));
+    console.log(user_id_list);
+    console.log(result_search_id);
 
+    for (var i = 0; i <= user_id_list.length - 1; i++) {
+        console.log(user_id_list[i]);
+        if (user_id_list[i] == result_search_id) {
+            userNameVal += '<p> 아이디 : ' + result_search_id + '</p>';
+
+            $('.user_info_top').append(userNameVal);
+
+            console.log($.urlParam('search_id'));
+        }
+
+    }
 
 
 </script>

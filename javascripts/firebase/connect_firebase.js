@@ -1,4 +1,5 @@
 
+//firebase 연결 코드
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
@@ -18,7 +19,7 @@ var database = firebase.database();
 
 var user_id_list = [];
 
-//user_list
+//user_list 받아오기.
 var userDbRef = database.ref('/users/');
 userDbRef.orderByKey().once('value').then(function (snapshot) {
     snapshot.forEach(function (userSnapshot) {

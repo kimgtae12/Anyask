@@ -2,11 +2,10 @@
 /* menu list */
 $(document).ready(function () {
 
-    var session_id = sessionStorage.getItem("userid");
-    console.log(session_id);
-    var menu_value = "";
+    var session_id = sessionStorage.getItem("userid"); //session 아이디 값을 load
+    var menu_value = ""; //메뉴 변수 생성
 
-    if (session_id == null) {
+    if (session_id == null) { //session id값이 없을 경우 실행
 
         menu_value += '<li><a href="#">로그인</a></li>' +
             '<li><a href="javascript:Join_Go()">회원가입</a></li>';
@@ -20,7 +19,7 @@ $(document).ready(function () {
 });
 
 /* logout_function */
-function idSeesionDestroy() {
+function idSeesionDestroy() { //로그아웃 함수.
     sessionStorage.removeItem('userid');
     window.location.href = "index.html";
 }

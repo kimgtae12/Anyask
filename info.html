@@ -9,16 +9,18 @@
     <!--include jquery-->
     <script src="javascripts/jquery/jquery_min.js"></script>
 
-    <!--include dynamic function javascript-->
-    <script src="javascripts/AskJs.js" type="text/javascript"></script>
-    <script src="javascripts/menulist.js" type="text/javascript"></script>
-
     <!--connect firebase-->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
-
     <script src="javascripts/firebase/connect_firebase.js" type="text/javascript"></script>
+
+    <!--include dynamic function javascript-->
+    <script src="javascripts/menulist.js" type="text/javascript"></script>
+    <script src="javascripts/userinfo_function.js" type="text/javascript"></script>
+
+
+
+
 </head>
 
 <body>
@@ -36,9 +38,14 @@
     <div class="wrapper">
         <section id="mainmiddle">
             <div class="user_info_top">
-
             </div>
-            <div id="test">
+            <div id="quetion_input_box">
+                <textarea id="quetion_area" placeholder="하고싶은 질문을 입력하세요."></textarea>
+            </div>
+            <div>
+                <input type="button" onclick="javascript:inputQuetion()" value="질문쓰기" />
+            </div>
+            <div id="quetion_div">
 
             </div>
             <input type="button" onclick="test_append()" />
@@ -48,41 +55,3 @@
 </footer>
 
 </html>
-
-<script>
-    var url = decodeURIComponent(window.location.href);
-    $.urlParam = function (name) {
-
-        //exec를 통해 주소값을 return해준다.
-        //return 된 주소값을 RegExp라는 정규식을 통해 =뒤에 있는 문자를 가져온다.
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results == null) {
-            return null;
-        }
-        else {
-            return results[1] || 0;
-        }
-    }
-    // parameter get
-    let result_search_id = $.urlParam('search_id');
-
-    let userNameVal = "";
-
-
-    console.log(user_id_list);
-    console.log(result_search_id);
-
-    for (var i = 0; i <= user_id_list.length - 1; i++) {
-        console.log(user_id_list[i]);
-        if (user_id_list[i] == result_search_id) {
-            userNameVal += '<p> 아이디 : ' + result_search_id + '</p>';
-
-            $('.user_info_top').append(userNameVal);
-
-            console.log($.urlParam('search_id'));
-        }
-
-    }
-
-
-</script>

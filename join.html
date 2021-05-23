@@ -68,39 +68,35 @@
 </html>
 
 <script>
-    let join_count = 0;
+    let join_count = 0; //중복체크 카운트값 변수 생성
 
-    function IdOverlabCheck() {
+    function IdOverlabCheck() { //회원가입시 아이디 중복 체크 함수. 
         let id = document.getElementById("id").value;
-        console.log(id);
-        for (var i = 0; i <= user_id_list.length - 1; i++) {
-            if (id == "") {
-                alert("아이디를 입력해주세요.");
-                break;
+        if (id != "" && id != undefined) { //입력 id의 공백 체크
+            for (var a = 0; a < user_id_list.length; a++) { //connect_firebase에서 생성한 user_id_list배열의 길이만큼 반복해준다.
+                if (id == user_id_list[a]) { //입력 아이디와 database의 아이디가 같을때 다음 코드 실행하고 반환해준다.
+                    alert("중복된 아이디가 있습니다.");
+                    return;
+                }
             }
-
-            else if (id == user_id_list[i]) {
-                alert("중복된 아이디가 있습니다.");
-                break;
-            }
-            else {
-                alert("사용 가능한 아이디 입니다.");
-                join_count++;
-                break;
-            }
+            join_count++; //중복체크 확인 카운트 증가.
+            alert("사용 가능한 아이디 입니다.");
         }
     }
-    function savaUserInfo() {
+    function savaUserInfo() { //회원가입 버튼 함수
+
+        // 입력한 값들을 javascript로 가져온다.
 
         let id = document.getElementById("id").value;
         let pw = document.getElementById("pw").value;
         let name = document.getElementById("username").value;
         let email = document.getElementById("email").value;
 
+        //중복체크를 하였을때 실행 가능
         if (join_count >= 1) {
-            var userTable = database.ref("users/" + id + "/");
+            var userTable = database.ref("users/" + id + "/"); //데이터베이스에 넣어준다.
 
-            var userInfo = {
+            var userInfo = { //값은 json형태로 저장이 된다.
                 "userinfo": {
                     userId: id,
                     userPw: pw,
@@ -109,14 +105,14 @@
                 }
 
             }
-            userTable.update(userInfo); //회원정보가 초기 베이스이므로 set함수를 써준다.
 
+            userTable.update(userInfo); //회원정보를 업데이트 시켜준다.
             alert("가입완료~!");
 
             window.location.href = "index.html";
-            join_count = 0;
+            join_count = 0; //중복체크 변수 값 초기화.
         }
-        else {
+        else { //중복체크 변수값이 0일 경우 실행
             alert("아이디 중복검사를 실행해주세요.");
         }
 

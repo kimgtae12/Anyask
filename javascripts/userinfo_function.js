@@ -9,7 +9,7 @@ var userQuetionVal = []; //질문 번호안에 있는 내용을 들고오기 위
 var quetionIndex = []; //검색한 아이디에서 받은 질문들의 개수를 불러오기 위한 배열. 
 //개수를 불러와 몇번째 질문인지 알 수 있고, 그 번호로 새로 질문을 저장한다.
 
-
+var user = 0;
 
 window.onload = function () {
 
@@ -54,16 +54,19 @@ window.onload = function () {
             var quetionViewKey = userSnapshot.key;
             user_quetion.push(quetionViewKey);
         });
-        console.log(user_quetion);
+        user = user_quetion.length;
+        console.log(user);
     });
 
+    console.log(user);
+
     //user_quetion에 저장되어있는 key의 경로에서 value들을 가져온다.
-    firebase.database().ref('/users/' + result_search_id + '/quetion/' + user_quetion + '/').once('value').then(function (snapshot) {
+    firebase.database().ref('/users/' + result_search_id + '/quetion/3/').once('value').then(function (snapshot) {
         snapshot.forEach(function (userSnapshot) { //forEach반복으로 배열의 값만큼 반복해준다.
             var quetionViewVal = userSnapshot.val(); //질문을 가져온다.
             userQuetionVal.push(quetionViewVal); //가져온 질문들을 userQuetionVal배열에 push해준다.
         });
-        console.log(userQuetionVal[1].value);
+        console.log(userQuetionVal);
 
         var innerQuetion = ""; //질문을 담아둘 변수 생성
 

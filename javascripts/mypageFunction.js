@@ -11,6 +11,9 @@ var quetionIndex = []; //검색한 아이디에서 받은 질문들의 개수를
 
 var user = 0;
 
+var answerQuetion = [];
+var noAnswerQuetion = [];
+
 (async function () {
 
     var url = decodeURIComponent(window.location.href);
@@ -43,7 +46,7 @@ var user = 0;
         //html에 append 시켜준다.
         userNameVal += '<p> 아이디 : ' + result_search_id + '</p>' +
             '<p> 이름 : ' + user_name + '</p>';
-        $('.user_info_top').append(userNameVal);
+        $('.user_mypage_top').append(userNameVal);
     });
 
     // request userQuetion -> key값 받아오기. (userSnapshot.key) =질문 번호를 가져온다.
@@ -58,32 +61,49 @@ var user = 0;
 
     for (let b = 1; b <= user; b++) {
         //user_quetion에 저장되어있는 key의 경로에서 value들을 가져온다.
-
         firebase.database().ref('/users/' + result_search_id + '/quetion/' + b + '/').once('value').then(function (snapshot) {
             snapshot.forEach(function (userSnapshot) { //forEach반복으로 배열의 값만큼 반복해준다.
                 var quetionViewVal = userSnapshot.val(); //질문을 가져온다.
                 userQuetionVal.push(quetionViewVal); //가져온 질문들을 userQuetionVal배열에 push해준다.
             });
-            var innerQuetion = ""; //질문을 담아둘 변수 생성
+            //질문을 담아둘 변수 생성
 
             //임시로 생성해둠.
-            var dd = [];
-            dd = userQuetionVal[0];
-            bb = userQuetionVal[1];
-            console.log(userQuetionVal);
-            if (dd != undefined && bb != undefined) {
-                innerQuetion += '<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
-                    '<p style=" display:inline;">&nbsp;&nbsp;' + bb + '</p>' +
-                    '<p>' + dd + '</p></div>';
+            var answerOrquestion = userQuetionVal[0]; //답변
+            var quetion = userQuetionVal[1]; //질문
 
-                $('#quetion_div').append(innerQuetion); //질문 배열을 info.html에 append 시켜준다.
-                userQuetionVal = []; //반복문을 통해 push하기 때문에 데이터가 있는 상태에서 push되어 피라미드 형태의 데이터가 나타난다.
-                //그러므로 배열을 초기화 시켜준다.
+
+            if (quetion != undefined && answerOrquestion != undefined) {
+                answerQuetion.push('<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
+                    '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + quetion + '</a></p>' +
+                    '<p>' + answerOrquestion + '</p>');
+                $('#answer_count').empty();
+                $('#answer_count').append(answerQuetion.length);
             }
+            else if (answerOrquestion != undefined && quetion == undefined) {
+                noAnswerQuetion.push('<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
+                    '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + answerOrquestion + '</a></p>');
+                $('#new_count').empty();
+                $('#new_count').append(noAnswerQuetion.length);
+            }
+            userQuetionVal = [];//반복문을 통해 push하기 때문에 데이터가 있는 상태에서 push되어 피라미드 형태의 데이터가 나타난다.
+            //그러므로 배열을 초기화 시켜준다.
         });
-
     }
 })();
+
+function answerList() {
+    $('#quetion_div').children().remove();
+    for (let c = 0; c <= answerQuetion.length; c++) {
+        $('#quetion_div').append(answerQuetion[c]);
+    }
+}
+function noAnswerList() {
+    $('#quetion_div').children().remove();
+    for (let c = 0; c <= noAnswerQuetion.length; c++) {
+        $('#quetion_div').append(noAnswerQuetion[c]);
+    }
+}
 
 function inputQuetion() { //질문하기를 눌렸을때 실행되는 함수
     let textarea = document.getElementById('quetion_area').value;

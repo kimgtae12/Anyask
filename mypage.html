@@ -16,7 +16,7 @@
 
     <!--include dynamic function javascript-->
     <script src="javascripts/menulist.js" type="text/javascript"></script>
-    <script src="javascripts/userinfo_function.js" type="text/javascript"></script>
+    <script src="javascripts/mypageFunction.js" type="text/javascript"></script>
 
 
 
@@ -37,13 +37,26 @@
     </section>
     <div class="wrapper">
         <section id="mainmiddle">
-            <div class="user_info_top">
+            <div class="user_mypage_top">
+            </div>
+            <div class="user_mypage_list">
+                <table align="center">
+                    <tr>
+                        <td>답변된 질문</td>
+                        <td>새질문</td>
+                        <td>거절질문</td>
+                    </tr>
+                    <tr>
+                        <td><a style="color:white" href="javascript:answerList()" id="answer_count">0</a></td>
+                        <td><a style="color:white" href="javascript:noAnswerList()" id="new_count">0</a></td>
+                        <td>0</td>
+                    </tr>
+                </table>
             </div>
             <div id="quetion_input_box">
-                <textarea id="quetion_area" placeholder="하고싶은 질문을 입력하세요."></textarea>
             </div>
             <div>
-                <input type="button" onclick="javascript:inputQuetion()" value="질문쓰기" />
+
             </div>
             <div id="quetion_div">
 

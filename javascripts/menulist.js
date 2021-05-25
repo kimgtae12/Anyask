@@ -12,7 +12,7 @@ $(document).ready(function () {
     }
 
     else {
-        menu_value += '<li><a href="mypage.htmldddddd?search_id=' + session_id + '">마이페이지</a></li>' +
+        menu_value += '<li><a href="mypage.html?search_id=' + session_id + '">마이페이지</a></li>' +
             '<li><a href="javascript:idSeesionDestroy()">로그아웃</a></li>';
     }
     $('#login-list').append(menu_value);

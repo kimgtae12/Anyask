@@ -77,9 +77,10 @@ var user = 0;
                     '<p>' + dd + '</p></div>';
 
                 $('#quetion_div').append(innerQuetion); //질문 배열을 info.html에 append 시켜준다.
-                userQuetionVal = []; //반복문을 통해 push하기 때문에 데이터가 있는 상태에서 push되어 피라미드 형태의 데이터가 나타난다.
+                //반복문을 통해 push하기 때문에 데이터가 있는 상태에서 push되어 피라미드 형태의 데이터가 나타난다.
                 //그러므로 배열을 초기화 시켜준다.
             }
+            userQuetionVal = [];
         });
 
     }

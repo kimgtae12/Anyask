@@ -59,7 +59,7 @@ var noAnswerQuetion = [];
         return user_quetion.length;
     });
 
-    for (let b = 1; b <= user; b++) {
+    for (let b = 0; b <= user; b++) {
         //user_quetion에 저장되어있는 key의 경로에서 value들을 가져온다.
         firebase.database().ref('/users/' + result_search_id + '/quetion/' + b + '/').once('value').then(function (snapshot) {
             snapshot.forEach(function (userSnapshot) { //forEach반복으로 배열의 값만큼 반복해준다.

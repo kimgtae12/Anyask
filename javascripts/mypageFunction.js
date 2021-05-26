@@ -59,7 +59,7 @@ var noAnswerQuetion = [];
             content: {
                 title: "AnyAsk",
                 description: "내이름은!" + user_name + "! 질문해볼사람!!!",
-                imageUrl: "",
+                imageUrl: "https://opgg-com-image.akamaized.net/attach/images/20200521130943.1049686.jpg",
                 link: {
                     mobileWebUrl: "https://anyask1.azurewebsites.net/info.html?search_id=" + result_search_id,
                     webUrl: "https://anyask1.azurewebsites.net/info.html?search_id=" + result_search_id

@@ -10,7 +10,6 @@
     <script src="javascripts/jquery/jquery_min.js"></script>
 
     <!--include dynamic function javascript-->
-    <script src="javascripts/AskJs.js?ver=0.2" type="text/javascript"></script>
     <script src="javascripts/menulist.js?ver=0.2" type="text/javascript"></script>
 
     <!--connect firebase-->
@@ -55,7 +54,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><input class="join_go" type="button" value="회원가입" onclick="savaUserInfo()" /></td>
+                        <td><input type="button" class="join_go" value="회원가입" onclick="savaUserInfo()" /></td>
+
                     </tr>
                 </table>
             </form>
@@ -107,8 +107,6 @@
             }
 
             userTable.update(userInfo); //회원정보를 업데이트 시켜준다.
-            alert("가입완료~!");
-
             window.location.href = "index.html";
             join_count = 0; //중복체크 변수 값 초기화.
         }

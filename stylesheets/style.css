@@ -43,14 +43,45 @@ a:visited{text-decoration: none; color:#87ceeb;}
 /*****intro*****/
 .intro{line-height: 35px;}
 .input_style{border-radius: 10px; background-color:rgba(255, 255, 255, 0.5); border:none; width:220px; height: 30px; }
-.input_button{ background-color:white; border-radius: 10px; border:none; color: #87ceeb; font-weight:900; height:70px;}
+.input_button{ background-color:white; cursor:pointer; border-radius: 10px; border:none; color: #87ceeb; font-weight:900; height:70px;}
 
 .search_id{border-radius: 10px; background-color:rgba(255, 255, 255, 0.5); border:none; width:350px; height: 30px; }
 
 .search_id::placeholder{text-align:center;}
 /*****join*****/
 #join table tr td{height:40px;}
-.join_go{background-color:white; border:none; border-radius: 10px;  text-align: center; margin:0 auto; width:270px; height: 30px; font-size:18px; color:#87ceeb;}
+.join_go{background-color:white;
+    border: none;
+    border-radius:10px;
+    color: #87ceeb;
+    text-align: center;
+    width: 270px;
+    height: 30px;
+    font-size:18px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0 auto;
+        }
+.join_go{    
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.join_go:after{content: '»';
+    position: absolute;
+    opacity: 0;  
+    right: -20px;
+    transition: 0.5s;
+}
+.join_go:hover{
+    padding-right: 24px;
+    padding-left:8px;
+}
+.join_go:hover:after {
+    opacity: 1;
+    right: 40px;
+  }
 .join_text p a{ font-size:18px; border-radius: 10px; color:#3281a2 !important; line-height: 30px;}
 
 

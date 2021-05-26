@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     if (session_id == null) { //session id값이 없을 경우 실행
 
-        menu_value += '<li><a href="#">로그인</a></li>' +
+        menu_value += '<li><a href="index.html">로그인</a></li>' +
             '<li><a href="javascript:Join_Go()">회원가입</a></li>';
     }
 

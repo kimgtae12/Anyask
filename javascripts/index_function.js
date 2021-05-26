@@ -28,7 +28,6 @@ function login_Go() {
                 else { //비밀번호가 만약 같다면 session에 입력 아이디를 저장해준다.
                     sessionStorage.setItem("userid", user_id);
                     var session_user_id = sessionStorage.getItem("userid");
-                    alert("로그인 완료!\n 아이디는 : " + session_user_id);
                     user_id_list = [];
                     window.location.href = "index.html";
 
@@ -87,7 +86,8 @@ $(document).ready(function () {
             '             <td colspan="2" style="height: 60px;">또는</td>' +
             '       </tr >' +
             '       <tr>' +
-            '             <td colspan="2"><input class="join_go" type="button" value="회원가입" onclick="Join_Go()" /></td >' +
+            '             <td colspan="2"><button class="join_go" onclick="Join_Go()"><span>회원가입</span></button></td >' +
+
             '       </tr >' +
             '   </table >';
 
@@ -98,8 +98,12 @@ $(document).ready(function () {
         index_value += '<p class="intro">' + session_id + '님 반갑습니다.</br>' +
             '원하는 사용자의 아이디를 검색하여 지금 바로 질문해보세요!</p>' +
             '<form>' +
-            '   <input class="search_id" type="text" name="search_id" placeholder="원하는 사용자의 아이디를 입력하세요.">' +
-            '   <input type="button" onclick="javascript:searchId()" value="검색"/>' +
+            '   <table align="center">' +
+            '   <tr>' +
+            '       <td><input class="search_id" type="text" name="search_id" placeholder="원하는 사용자의 아이디를 입력하세요."></td>' +
+            '        <td><img style="width:30px; height:30px;" onclick="javascript:searchId()" src="images/search_icon.png" /></td>' +
+            '   </tr>' +
+            '   </table>' +
             '</form>'
     }
     $('.main-form').append(index_value); //index에 html태그들을 appnd 시켜준다.

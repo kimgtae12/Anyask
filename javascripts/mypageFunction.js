@@ -45,8 +45,27 @@ var noAnswerQuetion = [];
 
         //html에 append 시켜준다.
         userNameVal += '<p> 아이디 : ' + result_search_id + '</p>' +
-            '<p> 이름 : ' + user_name + '</p>';
+            '<p> 이름 : ' + user_name + '</p>' +
+            '<p><a style="color:white" id="kakao-link-btn" href="javascript:sendLink()">내 질문지 공유하기</a></p>';
         $('.user_mypage_top').append(userNameVal);
+
+        //<![CDATA[
+        // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('c04ebb7dc0419ddf714f3c4ac0b7db47');
+        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+        Kakao.Link.createDefaultButton({
+            container: '#kakao-link-btn',
+            objectType: 'feed',
+            content: {
+                title: "AnyAsk",
+                description: "내이름은!" + user_name + "! 질문해볼사람!!!",
+                imageUrl: "",
+                link: {
+                    mobileWebUrl: "https://anyask1.azurewebsites.net/info.html?search_id=" + result_search_id,
+                    webUrl: "https://anyask1.azurewebsites.net/info.html?search_id=" + result_search_id
+                }
+            },
+        });
     });
 
     // request userQuetion -> key값 받아오기. (userSnapshot.key) =질문 번호를 가져온다.
@@ -135,3 +154,5 @@ function inputQuetion() { //질문하기를 눌렸을때 실행되는 함수
     });
 
 }
+
+

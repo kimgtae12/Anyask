@@ -7,44 +7,44 @@
     a:visited{text-decoration: none; color:white;}
 
     
-    #maintop{ position:relative; margin:0; height:200px; background-color:white; color:#87ceeb;}
+    #maintop{ position:relative; margin:0; height:170px; background-color:white; color:#87ceeb;}
     .top-area{width:100%; margin:0 auto; text-align:center;}
 
     .logo{display:inline-block;position:relative; vertical-align: middle; margin-top:15px; padding:0;}
-    .logo h1{margin:0; font-size:72px;}
+    .logo h1{margin:0; font-size:58px;}
     .logo h1 a{color:#87ceeb;}
 
     .login-form{position:relative;width:100%;}
     #login-list{list-style:none;  display:table; margin-left:auto; margin-right:auto; margin-top:3%; padding:0;}
     #login-list li{ float:left; margin-left:10px; margin-right:10px;font-weight: bold; }
-    #login-list li a{color:#87ceeb; font-size:32px; }
+    #login-list li a{color:#87ceeb; font-size:24px; }
 
 
-    .wrapper{margin:0 auto; margin-top:120px; width:100%; height: 100%;}
+    .wrapper{margin:0 auto; margin-top:30px; width:100%; height: 100%;}
     /*main contents */
     #mainmiddle{margin:10px; text-align:center; font-size:35px; font-weight:500; font-weight: bold;}
-    .logintable{width:100%; border-collapse: separate; border-spacing: 0 25px; padding-right:50px;}
+    .logintable{width:100%; border-collapse: separate; border-spacing: 0 5px; padding-right:50px;}
 
-    .input_style{border-radius: 30px; background-color:rgba(255, 255, 255, 0.5); border:none; width:650px; height:100px; }
-    .input_style::placeholder{font-size:35px; text-align:center;}
-    .input_button{ background-color:white; font-size:35px; cursor:pointer; border-radius: 30px; border:none; color: #87ceeb; font-weight:900; width:150px; height:200px;}
+    .input_style{border-radius: 15px; background-color:rgba(255, 255, 255, 0.5); border:none; width:350px; height:50px; }
+    .input_style::placeholder{font-size:15px; text-align:center;}
+    .input_button{ background-color:white; margin-left:5px; font-size:24px; cursor:pointer; border-radius: 15px; border:none; color: #87ceeb; font-weight:900; width:100px; height:100px;}
 
-
+    .intro{font-size:20px; line-height: -25px;}
     /*user search_form */
 
-    .search_id{border-radius: 30px; background-color:rgba(255, 255, 255, 0.5); border:none; width:600px; height: 100px; }
-    .search_id::placeholder{text-align:center; font-size:25px;}
+    .search_id{border-radius: 15px; background-color:rgba(255, 255, 255, 0.5); border:none; width:300px; height: 50px; }
+    .search_id::placeholder{text-align:center; font-size:15px;}
 
-    .search_icon{ margin-left:20px;width:80px; height:80px;}
+    .search_icon{ margin-left:10px; width:50px; height:40px;}
     /*join button */
     .join_go{background-color:white;
         border: none;
-        border-radius:30px;
+        border-radius:15px;
         color: #87ceeb;
         text-align: center;
         width: 70%;
-        height: 100px;
-        font-size:35px;
+        height: 50px;
+        font-size:24px;
         transition: all 0.5s;
         cursor: pointer;
         margin: 0 auto;

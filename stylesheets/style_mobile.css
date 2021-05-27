@@ -11,7 +11,7 @@
     .top-area{width:100%; margin:0 auto; text-align:center;}
 
     .logo{display:inline-block;position:relative; vertical-align: middle; margin-top:15px; padding:0;}
-    .logo h1{margin:0; font-size:32px;}
+    .logo h1{margin:0; font-size:72px;}
     .logo h1 a{color:#87ceeb;}
 
     .login-form{position:relative;width:100%;}

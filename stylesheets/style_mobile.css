@@ -1,0 +1,23 @@
+@media screen and (max-width:768px){
+    
+    body{margin: 0; padding:0; background-color:#87ceeb; color:white;}
+
+    a{color:white;}
+    a:link{text-decoration: none; color:white;}
+    a:visited{text-decoration: none; color:white;}
+
+    
+    #maintop{ position:relative; margin:0; height:15vh; background-color:white; color:#87ceeb;}
+    .top-area{width:100%; margin:0 auto; text-align:center;}
+
+    .logo{display:inline-block;position:relative; vertical-align: middle; margin-top:15px; padding:0;}
+    .logo h1{margin:0; font-size:32px;}
+    .logo h1 a{color:#87ceeb;}
+
+    .login-form{position:relative;width:100%;}
+    #login-list{list-style:none;  display:table; margin-left:auto; margin-right:auto; margin-top:3%; padding:0;}
+    #login-list li{ float:left; margin-left:10px; margin-right:10px;font-weight: bold; }
+    #login-list li a{color:#87ceeb;}
+
+    
+}

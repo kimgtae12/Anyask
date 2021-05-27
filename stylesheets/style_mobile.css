@@ -31,7 +31,7 @@
     .left_input{width:80%;}
    
     .loginbutton{width:20%;}
-    .input_button{ background-color:white; margin-left:5px; font-size:20px; cursor:pointer; border-radius: 15px; border:none; color: #87ceeb; font-weight:900; width:95%; height:100px;}
+    .input_button{ background-color:white; margin-left:5px; font-size:1rem; cursor:pointer; border-radius: 15px; border:none; color: #87ceeb; font-weight:900; width:95%; height:100px;}
 
     .intro{font-size:1rem; line-height: -25px;}
     /*user search_form */

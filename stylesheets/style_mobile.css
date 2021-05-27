@@ -23,13 +23,17 @@
     .wrapper{margin:0 auto; margin-top:30px; width:100%; height: 100%;}
     /*main contents */
     #mainmiddle{margin:10px; text-align:center; font-size:35px; font-weight:500; font-weight: bold;}
-    .logintable{width:100%; border-collapse: separate; border-spacing: 0 5px; padding-right:50px;}
+  
+    .logintable{width:100%; border-collapse: separate; border-spacing: 0 5px;}
 
-    .input_style{border-radius: 15px; background-color:rgba(255, 255, 255, 0.5); border:none; width:350px; height:50px; }
+    .input_style{border-radius: 15px; background-color:rgba(255, 255, 255, 0.5); border:none; width:100%; height:50px; }
     .input_style::placeholder{font-size:15px; text-align:center;}
-    .input_button{ background-color:white; margin-left:5px; font-size:24px; cursor:pointer; border-radius: 15px; border:none; color: #87ceeb; font-weight:900; width:100px; height:100px;}
+    .left_input{width:80%;}
+   
+    .loginbutton{width:20%;}
+    .input_button{ background-color:white; margin-left:5px; font-size:24px; cursor:pointer; border-radius: 15px; border:none; color: #87ceeb; font-weight:900; width:95%; height:100px;}
 
-    .intro{font-size:20px; line-height: -25px;}
+    .intro{font-size:1rem; line-height: -25px;}
     /*user search_form */
 
     .search_id{border-radius: 15px; background-color:rgba(255, 255, 255, 0.5); border:none; width:300px; height: 50px; }

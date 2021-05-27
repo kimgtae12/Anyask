@@ -76,11 +76,11 @@ $(document).ready(function () {
             '로그인을 하여 말하지 못했던 질문을 지금 바로 해보세요.</p>' +
             '   <table style="margin:0 auto;" class="logintable">' +
             '        <tr>' +
-            '             <td><input class="input_style" type="text" name="id" id="id" placeholder="아이디" required></td>' +
+            '             <td class="left_input"><input class="input_style" type="text" name="id" id="id" placeholder="아이디" required></td>' +
             '             <td class="loginbutton" rowspan="2"><input class="input_button" type="button" value="로그인" onclick="login_Go()"></td>' +
             '       </tr>' +
             '       <tr>' +
-            '             <td><input class="input_style" type="password" name="pw" id="pw" placeholder="비밀번호" required></td>' +
+            '             <td class="left_input"><input class="input_style" type="password" name="pw" id="pw" placeholder="비밀번호" required></td>' +
             '       </tr>' +
             '       <tr>' +
             '             <td colspan="2" style="height: 60px;">또는</td>' +

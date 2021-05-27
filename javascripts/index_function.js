@@ -77,7 +77,7 @@ $(document).ready(function () {
             '   <table style="margin:0 auto;" class="logintable">' +
             '        <tr>' +
             '             <td><input class="input_style" type="text" name="id" id="id" placeholder="아이디" required></td>' +
-            '             <td rowspan="2"><input class="input_button" type="submit" value="로그인" onclick="login_Go()"></td>' +
+            '             <td class="loginbutton" rowspan="2"><input class="input_button" type="submit" value="로그인" onclick="login_Go()"></td>' +
             '       </tr>' +
             '       <tr>' +
             '             <td><input class="input_style" type="password" name="pw" id="pw" placeholder="비밀번호" required></td>' +

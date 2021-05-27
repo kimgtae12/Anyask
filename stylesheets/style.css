@@ -1,6 +1,6 @@
 
 /* @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);*/
-@media screen and (min-width:1281px){
+@media screen and (min-width:1281px) {
 .nanumgothic * {
  font-family: 'Nanum Gothic', sans-serif;
 }
@@ -48,6 +48,7 @@ a:visited{text-decoration: none; color:#87ceeb;}
 .search_id{border-radius: 10px; background-color:rgba(255, 255, 255, 0.5); border:none; width:350px; height: 30px; }
 
 .search_id::placeholder{text-align:center;}
+.search_icon{width:30px; height:30px; margin-left:10px;}
 /*****join*****/
 #join table tr td{height:40px;}
 .join_go{background-color:white;

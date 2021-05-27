@@ -77,7 +77,7 @@ $(document).ready(function () {
             '   <table style="margin:0 auto;" class="logintable">' +
             '        <tr>' +
             '             <td><input class="input_style" type="text" name="id" id="id" placeholder="아이디" required></td>' +
-            '             <td class="loginbutton" rowspan="2"><input class="input_button" type="submit" value="로그인" onclick="login_Go()"></td>' +
+            '             <td class="loginbutton" rowspan="2"><input class="input_button" type="button" value="로그인" onclick="login_Go()"></td>' +
             '       </tr>' +
             '       <tr>' +
             '             <td><input class="input_style" type="password" name="pw" id="pw" placeholder="비밀번호" required></td>' +
@@ -101,7 +101,7 @@ $(document).ready(function () {
             '   <table align="center">' +
             '   <tr>' +
             '       <td><input class="search_id" type="text" name="search_id" placeholder="원하는 사용자의 아이디를 입력하세요."></td>' +
-            '        <td><img style="width:30px; height:30px;" onclick="javascript:searchId()" src="images/search_icon.png" /></td>' +
+            '        <td><img class="search_icon" onclick="javascript:searchId()" src="images/search_icon.png" /></td>' +
             '   </tr>' +
             '   </table>' +
             '</form>'

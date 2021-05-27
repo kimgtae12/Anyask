@@ -30,6 +30,13 @@
     .input_button{ background-color:white; font-size:35px; cursor:pointer; border-radius: 30px; border:none; color: #87ceeb; font-weight:900; width:150px; height:200px;}
 
 
+    /*user search_form */
+
+    .search_id{border-radius: 30px; background-color:rgba(255, 255, 255, 0.5); border:none; width:600px; height: 100px; }
+    .search_id::placeholder{text-align:center; font-size:25px;}
+
+    .search_icon{ margin-left:20px;width:80px; height:80px;}
+    /*join button */
     .join_go{background-color:white;
         border: none;
         border-radius:30px;

@@ -54,7 +54,7 @@
         text-align: center;
         width: 70%;
         height: 50px;
-        font-size:24px;
+        font-size:1rem;
         transition: all 0.5s;
         cursor: pointer;
         margin: 0 auto;
@@ -79,4 +79,7 @@
         opacity: 1;
         right: 30%;
       }
+
+    #join {width:80%; margin:0 auto;}
+    #join table{width:100%; }
 }

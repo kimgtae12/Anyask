@@ -2,6 +2,9 @@
     body,button,input,select,table,textarea,h1,h2,h3,h4,h5,h6,p,span,a,div,th,td,tr,table,header,footer,section,nav,ul,li,label,strong{
         font-family: 'Nanum Gothic' sans-serif !important;
     }
+    .nanumgothic * {
+        font-family: 'Nanum Gothic', sans-serif;
+       }
     
     body{margin: 0; padding:0; background-color:#87ceeb; color:white;}
 

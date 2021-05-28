@@ -1,7 +1,4 @@
 @media screen and (min-width:300px) and (max-width:1281px){
-    
-    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
     body,button,input,select,table,textarea,h1,h2,h3,h4,h5,h6,p,span,a,div,th,td,tr,table,header,footer,section,nav,ul,li,label,strong{
         font-family: 'Nanum Gothic' sans-serif !important;
     }

@@ -82,4 +82,29 @@
 
     #join {width:80%; margin:0 auto;}
     #join table{width:100%; }
+
+    .user_mypage_top{position:relative; margin: auto; width:90%; border-radius: 10px; border:3px solid white;}
+    .user_mypage_top p{font-size:1rem;}
+
+    .user_mypage_list{position:relative; margin: auto; margin-top:20px; width:90%; border-radius: 10px; border:3px solid white;}
+    .user_mypage_list table tr td{width:10%; font-size:1rem;}
+
+    
+
+
+/*****user_info****/
+.user_info_top{position:relative; margin: auto; width:90%; border-radius: 10px; border:3px solid white;}
+#quetion_area{position:relative; margin-top:20px; width:90%; height:50px; border-radius:10px; border:3px solid white; resize:none;}
+#quetion_area::placeholder{text-align:center; }
+
+#quetion_div{position:relative; margin: auto; width:90%;}
+
+#quetion_div{margin-top:20px;}
+.quetion_form{margin-top:30px; margin:0 auto; margin-bottom:1.5rem; width:90%; border-radius: 10px; font-size:1rem; border:3px solid white; text-align:left;}
+
+.answer_form{display:flex;}
+
+.answer_area{ margin-left:5px; width:90%; resize:none; height:50px;}
+
+
 }

@@ -14,24 +14,25 @@ var user = 0;
 var answerQuetion = [];
 var noAnswerQuetion = [];
 
-(async function () {
 
-    var url = decodeURIComponent(window.location.href);
-    $.urlParam = function (name) {
+var url = decodeURIComponent(window.location.href);
+$.urlParam = function (name) {
 
-        //exec를 통해 주소값을 return해준다.
-        //return 된 주소값을 RegExp라는 정규식을 통해 =뒤에 있는 문자를 가져온다.
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results == null) {
-            return null;
-        }
-        else {
-            return results[1] || 0;
-        }
+    //exec를 통해 주소값을 return해준다.
+    //return 된 주소값을 RegExp라는 정규식을 통해 =뒤에 있는 문자를 가져온다.
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null) {
+        return null;
     }
+    else {
+        return results[1] || 0;
+    }
+}
+// parameter get
+result_search_id = $.urlParam('search_id'); //url 주소에서 가져온 search_id를 변수에 담아준다.
 
-    // parameter get
-    result_search_id = $.urlParam('search_id'); //url 주소에서 가져온 search_id를 변수에 담아준다.
+
+(async function () {
 
     let userNameVal = ""; //info.html에 append시키기 위한 변수 생성
 
@@ -93,21 +94,31 @@ var noAnswerQuetion = [];
 
 
             if (quetion != undefined && answerOrquestion != undefined) {
-                answerQuetion.push('<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
+                answerQuetion.push('<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q&nbsp;-</p>' +
                     '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + quetion + '</a></p>' +
                     '<p>' + answerOrquestion + '</p>');
                 $('#answer_count').empty();
                 $('#answer_count').append(answerQuetion.length);
             }
             else if (answerOrquestion != undefined && quetion == undefined) {
-                noAnswerQuetion.push('<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
-                    '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + answerOrquestion + '</a></p>');
+                noAnswerQuetion.push('' +
+                    '<div class="quetion_form"><p id="quetion_num" style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
+                    '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + answerOrquestion + '</a></p>' +
+                    '<p><button class="make_answer_area">답변하기</button>&nbsp;<button>거절하기</button></p>' +
+                    '   <div class="answer_form">' +
+                    '    <textarea maxlength="1000" name="answer_area" class="answer_area" id="answer_area' + b + '" placeholder="원하는 답변을 입력하세요. 글자수는 1000자 제한입니다."></textarea>' +
+                    '    <button onclick="answer_go(' + b + ')">답변하기</button>' +
+                    '   </div >' +
+                    '</div > ');
                 $('#new_count').empty();
                 $('#new_count').append(noAnswerQuetion.length);
+
             }
             userQuetionVal = [];//반복문을 통해 push하기 때문에 데이터가 있는 상태에서 push되어 피라미드 형태의 데이터가 나타난다.
             //그러므로 배열을 초기화 시켜준다.
         });
+
+
     }
 })();
 
@@ -115,6 +126,7 @@ function answerList() {
     $('#quetion_div').children().remove();
     for (let c = 0; c <= answerQuetion.length; c++) {
         $('#quetion_div').append(answerQuetion[c]);
+
     }
 }
 function noAnswerList() {

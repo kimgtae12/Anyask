@@ -60,11 +60,12 @@
                     <tr>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="file" class="file-select" accept="image/*" /></td>
+                        <td><input type="file" class="file-select" accept="image/*" /></td>
+                        <td><button class="file_append">사진 등록</button></td>
                     </tr>
 
                     <tr>
-                        <td colspan="2"><button id="join_access" class="join_go" onclick="savaUserInfo()">회원가입</button>
+                        <td colspan="2"><button class="join_go" onclick="savaUserInfo()">회원가입</button>
                         </td>
 
                     </tr>
@@ -123,34 +124,7 @@
                 }
 
             }
-
             userTable.update(userInfo); //회원정보를 업데이트 시켜준다.
-            document.addEventListener('DOMContentLoaded', function () {
-                const storageRef = firebase.storage().ref();
-                let selectedFile;
-
-
-                // File 선택
-                document.querySelector('.file-select').addEventListener('change', e => {
-                    selectedFile = e.target.files[0];
-                });
-
-                // File 업로드
-
-                let id = document.getElementById("id").value;
-                storageRef
-                    .child('images/' + id)
-                    .put(selectedFile)
-                    .on('state_changed', snapshot => {
-                        console.log(snapshot)
-                    }, error => {
-                        console.log(error);
-                    }, () => {
-                        console.log('성공');
-                    }
-                    );
-            });
-
 
             //window.location.href = "index.html";
             join_count = 0; //중복체크 변수 값 초기화.
@@ -160,8 +134,6 @@
         }
 
     }
-
-
 
 
 </script>

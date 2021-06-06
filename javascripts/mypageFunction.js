@@ -31,6 +31,33 @@ $.urlParam = function (name) {
 // parameter get
 result_search_id = $.urlParam('search_id'); //url 주소에서 가져온 search_id를 변수에 담아준다.
 
+/*************** profile 변경 관리 **************/
+
+document.addEventListener('DOMContentLoaded', function () {
+    const storageRef1 = firebase.storage().ref();
+    let selectedFile;
+    // File 선택
+    document.querySelector('.file-add').addEventListener('change', e => {
+        selectedFile = e.target.files[0];
+    });
+
+    // File 업로드
+    document.querySelector('.file-submit').addEventListener('click', () => {
+
+        storageRef1
+            .child('profiles/' + result_search_id)
+            .put(selectedFile)
+            .on('state_changed', snapshot => {
+                console.log(snapshot)
+            }, error => {
+                console.log(error);
+            }, () => {
+                console.log('성공');
+                location.reload();
+            }
+            );
+    });
+});
 
 (async function () {
 
@@ -44,14 +71,28 @@ result_search_id = $.urlParam('search_id'); //url 주소에서 가져온 search_
         });
         user_name = user_info[2]; //push해준 값을 변수에 저장. 해당 변수는 회원 이름
 
-        //html에 append 시켜준다.
-        userNameVal += '<p> 아이디 : ' + result_search_id + '</p>' +
-            '<p> 이름 : ' + user_name + '</p>' +
-            '<p><a style="color:white" id="kakao-link-btn" href="javascript:sendLink()">내 질문지 공유하기</a></p>';
-        $('.user_mypage_top').append(userNameVal);
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
 
-        //<![CDATA[
-        // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        storageRef.child('profiles/' + result_search_id).getDownloadURL().then(function (url) {
+            // `url` is the download URL for 'images/stars.jpg'
+            // This can be downloaded directly:
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob'; //blob형태로 xmlhttprequest를 가져온다.
+
+            // Or inserted into an <img> element:
+            var img = document.getElementById('profile'); //profile아이디를 가진 id를 탐색
+            img.src = url; //url을 img 경로로 넣어준다.
+        }).catch(function (error) {
+            // Handle any errors
+        });
+
+        //html에 append 시켜준다.
+        $('#info_id').append(result_search_id);
+        $('#info_name').append(user_name);
+
+
+        //kakao api를 이용한 link공유
         Kakao.init('c04ebb7dc0419ddf714f3c4ac0b7db47');
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         Kakao.Link.createDefaultButton({
@@ -120,6 +161,7 @@ result_search_id = $.urlParam('search_id'); //url 주소에서 가져온 search_
 
 
     }
+
 })();
 
 function answerList() {
@@ -166,5 +208,9 @@ function inputQuetion() { //질문하기를 눌렸을때 실행되는 함수
     });
 
 }
+
+
+
+
 
 

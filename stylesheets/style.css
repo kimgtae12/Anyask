@@ -100,6 +100,7 @@ a:visited{text-decoration: none; color:#87ceeb;}
 
 .answer_area{ margin-left:5px; width:680px; resize:none; height:50px;}
 
+.profile_style{border-radius: 100%; border:2px solid #e3e3e3;}
 
 
 /*****user_info****/

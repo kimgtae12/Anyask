@@ -89,7 +89,7 @@
     .user_mypage_list{position:relative; margin: auto; margin-top:20px; width:90%; border-radius: 10px; border:3px solid white;}
     .user_mypage_list table tr td{width:10%; font-size:1rem;}
 
-    
+    .profile_style{border-radius: 100%; border:2px solid #e3e3e3;}
 
 
 /*****user_info****/

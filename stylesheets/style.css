@@ -111,3 +111,24 @@ a:visited{text-decoration: none; color:#87ceeb;}
 #quetion_div{position:relative; margin: auto; width:700px;}
 .quetion_form{margin-top:30px; width:700px; border-radius: 10px; border:3px solid white; text-align:left;}
 }
+
+
+
+
+/****button*****/
+button{background-color:white;
+    border: none;
+    border-radius:10px;
+    color: #87ceeb;
+    text-align: center;
+    font-size:15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0 auto;
+        }
+button{    
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}

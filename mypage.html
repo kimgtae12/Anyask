@@ -27,7 +27,11 @@
     <script src="javascripts/kakao_link.js?ver=1.1" type="text/javasript"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
-
+    <style>
+        #area_section div {
+            display: none;
+        }
+    </style>
 
 </head>
 
@@ -95,8 +99,17 @@
 <footer>
 </footer>
 
-</html>
-
 <script>
 
+    $(document).on("click", "#area_section > p", function () {
+        if ($(this).next().css("display") == "none") {
+            $(this).next().slideDown();
+        }
+        else {
+            $(this).next().slideUp();
+        }
+    })
+
 </script>
+
+</html>

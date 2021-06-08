@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var storage = firebase.storage();
         var storageRef = storage.ref();
 
+        var img_url = "";
+
         storageRef.child('profiles/' + result_search_id).getDownloadURL().then(function (url) {
             // `url` is the download URL for 'images/stars.jpg'
             // This can be downloaded directly:
@@ -82,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Or inserted into an <img> element:
             var img = document.getElementById('profile'); //profile아이디를 가진 id를 탐색
-            img.src = url; //url을 img 경로로 넣어준다.
+            img_url =
+                img.src = url; //url을 img 경로로 넣어준다.
         }).catch(function (error) {
             // Handle any errors
         });
@@ -103,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 description: "내이름은!" + user_name + "! 질문해볼사람!!!",
                 imageUrl: "https://opgg-com-image.akamaized.net/attach/images/20200521130943.1049686.jpg",
                 link: {
-                    mobileWebUrl: "https://anyask1.azurewebsites.net/info.html?search_id=" + result_search_id,
-                    webUrl: "https://anyask1.azurewebsites.net/info.html?search_id=" + result_search_id
+                    mobileWebUrl: "https://anyask.azurewebsites.net/info.html?search_id=" + result_search_id,
+                    webUrl: "https://anyask.azurewebsites.net/info.html?search_id=" + result_search_id
                 }
             },
         });
@@ -145,11 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 noAnswerQuetion.push('' +
                     '<div class="quetion_form"><p id="quetion_num" style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
                     '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + answerOrquestion + '</a></p>' +
-                    '<p><button class="make_answer_area">답변하기</button>&nbsp;<button>거절하기</button></p>' +
+                    '<section id="area_section">' +
+                    '<p class="slidedown"><button class="make_answer_area">답변하기</button>&nbsp;<button>거절하기</button></p>' +
                     '   <div class="answer_form">' +
                     '    <textarea maxlength="1000" name="answer_area" class="answer_area" id="answer_area' + b + '" placeholder="원하는 답변을 입력하세요. 글자수는 1000자 제한입니다."></textarea>' +
                     '    <button onclick="answer_go(' + b + ')">답변하기</button>' +
                     '   </div >' +
+                    '</section>' +
                     '</div > ');
                 $('#new_count').empty();
                 $('#new_count').append(noAnswerQuetion.length);

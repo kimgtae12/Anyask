@@ -53,7 +53,11 @@ var user = 0;
             var quetionViewKey = userSnapshot.key;
             user_quetion.push(quetionViewKey);
         });
-        return user_quetion.length;
+        for (let i = 0; i <= user_quetion.length; i++) {
+            if (i == user_quetion.length) {
+                return user_quetion[i - 1];
+            }
+        }
     });
 
     for (let b = 1; b <= user; b++) {

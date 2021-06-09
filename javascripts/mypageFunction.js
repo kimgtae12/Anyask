@@ -74,8 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var storage = firebase.storage();
         var storageRef = storage.ref();
 
-        var img_url = "";
-
         storageRef.child('profiles/' + result_search_id).getDownloadURL().then(function (url) {
             // `url` is the download URL for 'images/stars.jpg'
             // This can be downloaded directly:
@@ -84,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Or inserted into an <img> element:
             var img = document.getElementById('profile'); //profile아이디를 가진 id를 탐색
-            img_url =
-                img.src = url; //url을 img 경로로 넣어준다.
+            img.src = url; //url을 img 경로로 넣어준다.
         }).catch(function (error) {
             // Handle any errors
         });
@@ -120,8 +117,14 @@ document.addEventListener('DOMContentLoaded', function () {
             var quetionViewKey = userSnapshot.key;
             user_quetion.push(quetionViewKey);
         });
-        return user_quetion.length;
+        for (let i = 0; i <= user_quetion.length; i++) {
+            if (i == user_quetion.length) {
+                return user_quetion[i - 1];
+            }
+        }
     });
+
+    console.log(user);
 
     for (let b = 0; b <= user; b++) {
         //user_quetion에 저장되어있는 key의 경로에서 value들을 가져온다.
@@ -129,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
             snapshot.forEach(function (userSnapshot) { //forEach반복으로 배열의 값만큼 반복해준다.
                 var quetionViewVal = userSnapshot.val(); //질문을 가져온다.
                 userQuetionVal.push(quetionViewVal); //가져온 질문들을 userQuetionVal배열에 push해준다.
+                console.log(userQuetionVal);
             });
             //질문을 담아둘 변수 생성
 

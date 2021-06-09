@@ -37,8 +37,8 @@
     </section>
     <div class="wrapper">
         <section id="mainmiddle">
-            <form id="join">
-                <table>
+            <form action="index.html">
+                <table id="join">
                     <tr>
                         <td><input class="input_style" type="text" name="id" id="id" placeholder="아이디" required></td>
                         <td><button class="join_go" style="width:100%;" onclick="IdOverlabCheck()">중복검사</button></td>
@@ -123,8 +123,9 @@
             userTable.update(userInfo); //회원정보를 업데이트 시켜준다.
 
             join_count = 0; //중복체크 변수 값 초기화.
-            alert("가입완료!");
+
             window.location.href = "index.html";
+            alert("가입완료!");
         }
         else { //중복체크 변수값이 0일 경우 실행
             alert("아이디 중복검사를 실행해주세요.");

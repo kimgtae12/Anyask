@@ -124,15 +124,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    console.log(user);
-
     for (let b = 0; b <= user; b++) {
         //user_quetion에 저장되어있는 key의 경로에서 value들을 가져온다.
         firebase.database().ref('/users/' + result_search_id + '/quetion/' + b + '/').once('value').then(function (snapshot) {
             snapshot.forEach(function (userSnapshot) { //forEach반복으로 배열의 값만큼 반복해준다.
                 var quetionViewVal = userSnapshot.val(); //질문을 가져온다.
                 userQuetionVal.push(quetionViewVal); //가져온 질문들을 userQuetionVal배열에 push해준다.
-                console.log(userQuetionVal);
             });
             //질문을 담아둘 변수 생성
 

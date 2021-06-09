@@ -97,7 +97,6 @@ var user = 0;
             var dd = [];
             dd = userQuetionVal[0];
             bb = userQuetionVal[1];
-            console.log(userQuetionVal);
             if (dd != undefined && bb != undefined) {
                 innerQuetion += '<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q' + b + '&nbsp;-</p>' +
                     '<p style=" display:inline;">&nbsp;&nbsp;' + bb + '</p>' +
@@ -118,19 +117,26 @@ function inputQuetion() { //질문하기를 눌렸을때 실행되는 함수
 
 
     //검색한 유저의 질문들을 불러온다.
-    firebase.database().ref('/users/' + result_search_id + '/quetion/').once('value').then(function (snapshot) {
+    var fireQuetion = firebase.database().ref('/users/' + result_search_id + '/quetion');
+    fireQuetion.once('value').then(function (snapshot) {
         snapshot.forEach(function (userSnapshot) {
             var quetionVal = userSnapshot.key;
             quetionIndex.push(quetionVal);
         });
-        console.log(quetionIndex.length);
-        var quetionNumber = quetionIndex.length + 1;
-        /*질문들의 개수에 +1하여 변수에 저장해준다
-         예를 들어 질문이 3개가 있다고 하면 배열의 길이는 3이다. 
-         그러므로 배열길이에 +1을 하여 4가 된다.
-         이 4가 이번에 쓸 질문의 index가 된다.
-        */
 
+        var quetionNumber = 0;
+
+        if (quetionIndex.length == 0) {
+            quetionNumber = 1;
+        }
+        for (let i = 0; i <= quetionIndex.length; i++) {
+            if (i == quetionIndex.length) {
+                quetionNumber = quetionIndex[i - 1];
+                quetionNumber++;
+            }
+        }
+
+        console.log(quetionNumber);
         var userTable = database.ref("users/" + result_search_id + '/quetion/' + quetionNumber + '/');
         //table을 지정해 앞에 생성했던 quetionNumber번호로 질문을 업로드 할 것이다.
 
@@ -140,6 +146,10 @@ function inputQuetion() { //질문하기를 눌렸을때 실행되는 함수
         userTable.update(userQuetion); //userQuetion을 테이블에 업데이트 시켜준다.
         alert("질문 완료.");
         window.location.reload(); //글쓰기가 완료됬을땐 페이지를 reload 시켜준다.
+
+        return false;
+
+
     });
 
 }

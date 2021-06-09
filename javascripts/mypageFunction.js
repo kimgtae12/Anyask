@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             if (quetion != undefined && answerOrquestion != undefined) {
+
                 answerQuetion.push('<div class="quetion_form"><p style="font-size:24px; display:inline; margin:0">Q&nbsp;-</p>' +
                     '<p style=" display:inline;">&nbsp;&nbsp;<a href="#" style="color:white">' + quetion + '</a></p>' +
                     '<p>' + answerOrquestion + '</p>');

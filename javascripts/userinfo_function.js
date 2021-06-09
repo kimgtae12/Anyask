@@ -40,9 +40,32 @@ var user = 0;
         });
         user_name = user_info[2]; //push해준 값을 변수에 저장. 해당 변수는 회원 이름
 
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+
+        storageRef.child('profiles/' + result_search_id).getDownloadURL().then(function (url) {
+            // `url` is the download URL for 'images/stars.jpg'
+            // This can be downloaded directly:
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob'; //blob형태로 xmlhttprequest를 가져온다.
+
+            // Or inserted into an <img> element:
+            var img = document.getElementById('profile'); //profile아이디를 가진 id를 탐색
+            img.src = url; //url을 img 경로로 넣어준다.
+        }).catch(function (error) {
+            // Handle any errors
+        });
+
         //html에 append 시켜준다.
-        userNameVal += '<p> 아이디 : ' + result_search_id + '</p>' +
-            '<p> 이름 : ' + user_name + '</p>';
+        userNameVal += '<table align="center" style="margin-top:10px; margin-bottom:10px;">' +
+            '               <tr>' +
+            '                   <td rowspan="2"><img class="profile_style" id="profile" height="150" width="150" /></td>' +
+            '                   <td><p> 이름 : ' + user_name + '</p></td>' +
+            '               </tr>' +
+            '               <tr>' +
+            '                   <td> <p>아이디 : ' + result_search_id + '</p></td>' +
+            '               </tr>' +
+            '           </table>';
         $('.user_info_top').append(userNameVal);
     });
 

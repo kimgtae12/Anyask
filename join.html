@@ -122,14 +122,13 @@
             }
             userTable.update(userInfo); //회원정보를 업데이트 시켜준다.
 
-            //window.location.href = "index.html";
             join_count = 0; //중복체크 변수 값 초기화.
+            alert("가입완료!");
+            window.location.href = "index.html";
         }
         else { //중복체크 변수값이 0일 경우 실행
             alert("아이디 중복검사를 실행해주세요.");
         }
-
-        window.location.href = "index.html";
 
     }
 
